@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import NavBarComponent from "./components/nav-bar";
 import "bootstrap/dist/css/bootstrap.min.css";
