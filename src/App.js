@@ -7,7 +7,7 @@ import GalleryComponent from "./components/gallery";
 import FooterComponent from "./components/footer";
 
 function App() {
-  let searchTexts = ["harry potter", "fast", "The Naked Gun"];
+  let searchTexts = ["harry potter", "fast", "The Naked Gun", "spuntata"];
   return (
     <div>
       <header>

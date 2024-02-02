@@ -32,7 +32,7 @@ class GalleryComponent extends Component {
         <Container className="my-5">
           <h4>{this.state.searchText.toUpperCase()}</h4>
           <Row>
-            {this.state.isLoading &&
+            {this.state.isLoading && (
               <Col lg={12} className="text-center">
                 <Spinner
                   style={{ width: "7rem", height: "7rem" }}
@@ -41,16 +41,22 @@ class GalleryComponent extends Component {
                   variant="danger"
                 />
               </Col>
-            }
-            {this.state.films.map((film, index) => {
-              return (
-                index < 3 && (
-                  <Col sm={12} md={6} lg={4} key={index}>
-                    <FilmCardComponent film={film} />
-                  </Col>
-                )
-              );
-            })}
+            )}
+            {this.state.films ? (
+              this.state.films.map((film, index) => {
+                return (
+                  index < 3 && (
+                    <Col sm={12} md={6} lg={4} key={index}>
+                      <FilmCardComponent film={film} />
+                    </Col>
+                  )
+                );
+              })
+            ) : (
+              <Col lg={12} className="text-center">
+                <p className="m-5">NESSUN FILM TROVATO</p>
+              </Col>
+            )}
           </Row>
         </Container>
       </>
