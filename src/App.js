@@ -6,6 +6,7 @@ import GalleryComponent from "./components/gallery";
 import FooterComponent from "./components/footer";
 
 function App() {
+  // genero una stringa in più per generare l'errore dei film non trovati
   let searchTexts = ["harry potter", "fast", "The Naked Gun", "spuntata"];
   return (
     <div>
