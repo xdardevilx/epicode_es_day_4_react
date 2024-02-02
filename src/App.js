@@ -7,6 +7,7 @@ import GalleryComponent from "./components/gallery";
 import FooterComponent from "./components/footer";
 
 function App() {
+  let searchTexts = ["harry potter", "fast", "The Naked Gun"];
   return (
     <div>
       <header>
@@ -14,7 +15,9 @@ function App() {
         <SubNavBarComponent />
       </header>
       <main>
-        <GalleryComponent />
+        {searchTexts.map((searchText, index) => {
+          return <GalleryComponent key={index} searchText={searchText} />;
+        })}
       </main>
       <footer className="bg-dark">
         <FooterComponent />

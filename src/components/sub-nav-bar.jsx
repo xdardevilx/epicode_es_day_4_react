@@ -4,20 +4,22 @@ import Navbar from "react-bootstrap/Navbar";
 
 function SubNavBarComponent() {
   return (
-    <Navbar className="bg-body-tertiary">
+    <Navbar bg="dark" data-bs-theme="dark">
       <Container>
-        <Navbar.Brand href="#home">Navbar with text</Navbar.Brand>
-        <NavDropdown title="Dropdown" id="collapsible-nav-dropdown">
-          <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-          <NavDropdown.Divider />
-          <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+        <Navbar.Brand href="#home">TV Shows</Navbar.Brand>
+        <NavDropdown
+          className="text-white"
+          title="Genres"
+          id="collapsible-nav-dropdown">
+          <NavDropdown.Item href="#action/3.1">Comedy</NavDropdown.Item>
+          <NavDropdown.Item href="#action/3.2">Drama</NavDropdown.Item>
+          <NavDropdown.Item href="#action/3.3">Thriller</NavDropdown.Item>
         </NavDropdown>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
+            <i className="bi bi-grid icons me-2"></i>{" "}
+            <i className="bi bi-grid-3x3 icons"></i>
           <Navbar.Text>
-            Signed in as: <a href="#login">Mark Otto</a>
           </Navbar.Text>
         </Navbar.Collapse>
       </Container>

@@ -4,23 +4,24 @@ import { Component } from "react";
 import searchAPI from "../data/search.api";
 
 class GalleryComponent extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       films: [],
+      searchText: props.searchText,
     };
   }
 
   async componentDidMount() {
-    let films = await searchAPI("harry potter");
+    let films = await searchAPI(this.state.searchText);
     this.setState({ films: films.Search });
   }
 
   render() {
     return (
       <>
-        <h4>Titolo</h4>
-        <Container>
+        <Container  className="my-5">
+        <h4>{this.state.searchText.toUpperCase()}</h4>
           <Row>
             {this.state.films.map((film, index) => {
               return (
