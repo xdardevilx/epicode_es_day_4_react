@@ -1,8 +1,9 @@
+import { Col, Container, Row } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import { useNavigate } from "react-router-dom";
 
 function FilmCardComponent(props) {
-  let film = props.film
+  let film = props.film;
   const navigate = useNavigate();
 
   const saveId = () => {

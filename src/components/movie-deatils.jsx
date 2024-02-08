@@ -3,31 +3,34 @@ import FilmCardComponent from "./film-card";
 import { useParams } from "react-router-dom";
 import { useEffect, useCallback } from "react";
 import { useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Spinner } from "react-bootstrap";
 
 const MovieDetails = () => {
-  //   const { movieId, setMovieId } = useState(useParams());
   const { movieId } = useParams();
   const [film, setFilm] = useState(null);
-  //   async function fetchData() {
-  //     const resp = await ;
-  //     setFilm(resp);
-  //   }
-  //   const fetchData = useCallback(async()=> {
-  //     console.log("<fn")
-  //     const data = await searchFromIdAPI(movieId);
-  //     setFilm(data)
-  //   }, [movieId, setFilm])
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
       const resp = await searchFromIdAPI(movieId);
-
       setFilm(resp);
+      setIsLoading(false);
     }
     fetchData();
   }, [movieId]);
 
-  return <FilmCardComponent film={film} />;
+  return isLoading ? (
+    <div class="w-100 h-100 d-flex justify-content-center align-items-center">
+      <Spinner className="text-center" />
+    </div>
+  ) : (
+    <Container>
+      <Row className="justify-content-center">
+        <Col sm={12} md={4}>
+          <FilmCardComponent film={film} />
+        </Col>
+      </Row>
+    </Container>
+  );
 };
 export default MovieDetails;
