@@ -3,11 +3,12 @@ import FilmCardComponent from "./film-card";
 import { useParams } from "react-router-dom";
 import { useEffect, useCallback } from "react";
 import { useState } from "react";
+import { Col, Container, Row } from "react-bootstrap";
 
 const MovieDetails = () => {
   //   const { movieId, setMovieId } = useState(useParams());
   const { movieId } = useParams();
-  const { film, setFilm } = useState(null);
+  const [film, setFilm] = useState(null);
   //   async function fetchData() {
   //     const resp = await ;
   //     setFilm(resp);
@@ -21,12 +22,12 @@ const MovieDetails = () => {
   useEffect(() => {
     async function fetchData() {
       const resp = await searchFromIdAPI(movieId);
-      
-    //   setFilm(resp);
+
+      setFilm(resp);
     }
     fetchData();
   }, [movieId]);
 
-  return <>{/* <FilmCardComponent film={film} /> */}</>;
+  return <FilmCardComponent film={film} />;
 };
 export default MovieDetails;
