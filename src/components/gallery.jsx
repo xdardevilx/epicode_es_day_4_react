@@ -16,7 +16,6 @@ class GalleryComponent extends Component {
   async componentDidMount() {
     this.loading(true);
     let films = await searchAPI(this.state.searchText);
-    console.log(films.Search)
     this.setState({ films: films.Search });
     this.loading(false);
   }
